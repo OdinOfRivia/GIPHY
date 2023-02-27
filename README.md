@@ -1,3 +1,5 @@
+## First thing first...
+
 Install to your Local Machine
 `npm install`
 
@@ -8,12 +10,16 @@ Go Live (vscode extension)
 
 ## Get started
 
-Pull the origin
-`git pull origin main`
-
 Make your branch
 `git checkout -b <yourName>`
 <yourName> should be your branch
 
-Push to your branch
+Pull the origin
+`git pull origin main`
+
+Push to your branchout
 `git push origin <yourBranchName>`
+
+\*\* Make sure you push your modification to your branch!!
+
+When your works done, make a pull request!
