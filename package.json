@@ -1,0 +1,14 @@
+{
+	"name": "webdeb2_final",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"sass": "sass src/scss:src/css -w"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"sass": "^1.58.3"
+	}
+}
