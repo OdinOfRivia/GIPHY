@@ -1,31 +1,59 @@
-// Main url
-var api = "https://api.giphy.com/v1/gifs/search";
+/**Url for Search api */
+const searchUrl = "https://api.giphy.com/v1/gifs/search";
 
+/** Url for Trending api */
+const trendUrl = "https://api.giphy.com/v1/gifs/trending";
+
+/** Request params for api */
 // Api key
-var key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
-
-// Query
-var query = "&q=Dogs"; // Looking for dogs :)
+const key = "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK";
 
 // Request Limit
-var limit = "&limit=25";
+const limit = "&limit=5";
 
 // Offset
-var offset = "&offset=0";
+const offset = "&offset=0";
 
 // Rating Category
-var rating = "&rating=g";
+const rating = "&rating=g";
 
 // Language Request
-var language = "&lang=en";
+const language = "&lang=en";
 
-// Url to Call
-var url = api + key + query + limit + offset + rating + language;
+/** Url and request params for trend api */
+const trendApi = trendUrl + key + limit + rating + language;
 
-// Using Fetch to get the Data from the GIPHY API
-const apiData = fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    // Check Data Response in Consolle guys
-    console.log(data);
-  });
+/** Function to send http request to the Giphy server */
+async function sendHttpRequest(url, method, data) {
+  return await fetch(url, {
+    method,
+    ...(data && { headers: { "Content-Type": "application/json" } }),
+    ...(data && { body: JSON.stringify(data) }),
+  }).then((d) => d.json());
+}
+
+/** Fetch the data of gifs which is most engaging content each and every day */
+async function getTrend() {
+  const responseData = await sendHttpRequest(trendApi,
+    "GET"
+  );
+
+  console.log(responseData); /** Testing the response data */
+  // return responseData;
+}
+
+/** User can decide the keyword in the input field, and recieve it as an param "keyword"*/
+async function searchGif(keyWord) {
+  const url = `${searchUrl + key}&q=${keyWord}${
+    limit + offset + rating + language
+  }`;
+  const responseData = await sendHttpRequest(url, "GET");
+
+  console.log(responseData); /** Testing the response data */
+  // return responseData;
+}
+
+/** Execute getTrend() when the page loaded so that user can see the popular gifs */
+$(window).on("load", function () {
+  getTrend();
+});
