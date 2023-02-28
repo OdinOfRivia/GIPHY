@@ -36,16 +36,31 @@
 }
 
 header .menu {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
-
-.nav {
+header .menu nav {
   padding: 0;
+  margin: 20px 0;
 }
-.nav li {
+header .menu nav ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+header .menu nav li {
   padding: 0 1rem;
+}
+header .menu .icon {
+  display: flex;
+  flex-direction: row;
+}
+header .menu .icon img {
+  padding: 0 10px;
 }
 
 body {
