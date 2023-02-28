@@ -1,5 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+/*--- use like this -----------------
+
+@use "./_mixin.scss" as m;
+
+@include m.mq(md) {
+		font-size: 2rem;
+	}
+------------------------------------*/
+.search-content {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 55rem;
+  margin: 0 auto;
+}
+.search-content .search-btn {
+  background-color: #fe47bb;
+  border-color: #ffffff;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.search-content .search-btn:hover {
+  cursor: pointer;
+}
+
+.search {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  border: none;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  outline: #a7a7a7;
+  color: #a7a7a7;
+}
+
+header .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav {
+  padding: 0;
+}
+.nav li {
+  padding: 0 1rem;
+}
+
 body {
   font-size: 1rem;
+  font-family: "Lato", sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*------------------------------------------------
+
+Sass structure >>> https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture
+
+-------------------------------------------------*/
 
 /*# sourceMappingURL=index.css.map */

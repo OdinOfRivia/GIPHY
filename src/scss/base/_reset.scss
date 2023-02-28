@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as v;
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: v.$color-bg;
+	color: v.$color-main;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: v.$color-main;
+}
