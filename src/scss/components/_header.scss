@@ -1,16 +1,64 @@
-//  change to hamburger menu later
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixin" as m;
+
 header {
-	& .menu {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	.menu {
+		@include m.mq(md) {
+			display: flex;
+			align-items: center;
+		}
+
+		& h1 {
+			padding-left: 2rem;
+		}
 	}
 }
 
 .nav {
 	padding: 0;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	transform: translateX(100%);
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+	background-color: v.$color-bg;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	font-size: 1.2rem;
+
+	&.open {
+		transform: translateX(0);
+		padding-top: 5rem;
+	}
 
 	& li {
-		padding: 0 1rem;
+		padding: 2rem 0;
+
+		&:hover {
+			transform: scale(105%);
+		}
+
+		& a {
+			&:hover {
+				color: v.$color-btn;
+			}
+		}
+
+		@include m.mq(md) {
+			padding: 0 1rem;
+		}
+	}
+
+	@include m.mq(md) {
+		display: flex;
+		justify-content: center;
+		background-color: inherit;
+		position: inherit;
+		height: inherit;
+		transform: translateX(0);
+		transition: none;
+		z-index: 0;
 	}
 }
