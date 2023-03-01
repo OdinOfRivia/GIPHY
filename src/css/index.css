@@ -1,5 +1,70 @@
 body {
-  font-size: 3rem;
+  color: red;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+}
+ul ul li img {
+  width: 100%;
+}
+
+.cart-1,
+.cart-2 {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.btn1 ul,
+.btn2 ul {
+  display: flex;
+  justify-content: space-between;
+}
+.btn1 ul li a,
+.btn2 ul li a {
+  text-decoration: none;
+  color: red;
+}
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.grid-1 li {
+  background-color: aquamarine;
+  box-sizing: border-box;
+}
+.grid-1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wrapper-2 {
+  padding: 0;
+  margin: 0;
+}
+.wrapper-2 li {
+  background-color: aquamarine;
+  box-sizing: border-box;
+}
+.wrapper-2 img {
+  width: 300px;
+  height: 300px;
+  display: block;
+  object-fit: fill;
+}
+.wrapper-2 .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.wrapper-2 .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 }
 
 /*# sourceMappingURL=index.css.map */
