@@ -1,33 +1,56 @@
-// Main url
-var api = 'https://api.giphy.com/v1/gifs/search'
+// Cache the query selector calls
+const menuBtn = document.querySelector(".menu-btn");
+const burgerLine = document.querySelector(".menu-btn-burger");
+const nav = document.querySelector(".nav");
 
-// Api key
-var key = '?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77'
+const toggleMenu = () => {
+  burgerLine.classList.toggle("open");
+  nav.classList.toggle("open");
+};
 
-// Query
-var query = '&q=Dogs' // Looking for dogs :)
+menuBtn.addEventListener("click", toggleMenu);
 
-// Request Limit
-var limit = '&limit=25'
+// Define the API URLs and request parameters using const
+const searchUrl = "https://api.giphy.com/v1/gifs/search";
+const trendUrl = "https://api.giphy.com/v1/gifs/trending";
+const key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
+const limit = "&limit=5";
+const offset = "&offset=0";
+const rating = "&rating=g";
+const language = "&lang=en";
 
-// Offset
-var offset = '&offset=0'
+// Use template literals to build the URL
+const trendApi = `${trendUrl}${key}${limit}${rating}${language}`;
 
-// Rating Category
-var rating = '&rating=g'
+// Use arrow function syntax for consistency
+const sendHttpRequest = async (url, method, data) => {
+  const headers = data ? { "Content-Type": "application/json" } : {};
 
-// Language Request
-var language = '&lang=en'
+  const response = await fetch(url, {
+    method,
+    headers,
+    body: data && JSON.stringify(data),
+  });
 
-// Url to Call
-var url = api + key + query + limit + offset + rating + language
+  const responseData = await response.json();
+  console.log(responseData);
+  return responseData;
+};
 
-// Using Fetch to get the Data from the GIPHY API
-const apiData = fetch(url)
-.then((response) => response.json())
-.then((data) => {
+const getTrend = async () => {
+  const responseData = await sendHttpRequest(trendApi, "GET");
+  console.log(responseData);
+  return responseData;
+};
 
-    // Check Data Response in Consolle guys
-    console.log(data);
-    
+const searchGif = async (keyWord) => {
+  const url = `${searchUrl}${key}&q=${keyWord}${limit}${offset}${rating}${language}`;
+  const responseData = await sendHttpRequest(url, "GET");
+  console.log(responseData);
+  return responseData;
+};
+
+// Use arrow function syntax for consistency
+$(window).on("load", () => {
+  getTrend();
 });
