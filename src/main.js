@@ -15,7 +15,7 @@ menuBtn.addEventListener("click", toggleMenu);
 // Define the API URLs and request parameters using const to ensure they are not reassigned
 const searchUrl = "https://api.giphy.com/v1/gifs/search";
 const trendUrl = "https://api.giphy.com/v1/gifs/trending";
-const key = "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK";
+const key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
 const limit = "&limit=5";
 const offset = "&offset=0";
 const rating = "&rating=g";
