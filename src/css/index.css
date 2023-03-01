@@ -1,5 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+/*--- use like this -----------------
+
+@use "./_mixin.scss" as m;
+
+@include m.mq(md) {
+		font-size: 2rem;
+	}
+------------------------------------*/
+.search-content {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 55rem;
+  margin: 0 auto;
+}
+.search-content .search-btn {
+  background-color: #fe47bb;
+  border-color: #ffffff;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.search-content .search-btn:hover {
+  cursor: pointer;
+}
+
+.search {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  border: none;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  outline: #a7a7a7;
+  color: #a7a7a7;
+}
+
+@media screen and (min-width: 768px) {
+  header .menu {
+    display: flex;
+    align-items: center;
+  }
+}
+header .menu h1 {
+  padding-left: 2rem;
+}
+
+.nav {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
+  background-color: #000000;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.2rem;
+}
+.nav.open {
+  transform: translateX(0);
+  padding-top: 5rem;
+}
+.nav li {
+  padding: 2rem 0;
+}
+.nav li:hover {
+  transform: scale(105%);
+}
+.nav li a:hover {
+  color: #fe47bb;
+}
+@media screen and (min-width: 768px) {
+  .nav li {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+    position: inherit;
+    height: inherit;
+    transform: translateX(0);
+    transition: none;
+    z-index: 0;
+  }
+}
+
+.menu-btn {
+  position: absolute;
+  z-index: 10;
+  right: 1rem;
+  top: 1rem;
+  height: 20px;
+  width: 28px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .menu-btn {
+    display: none;
+  }
+}
+.menu-btn-burger {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  width: 28px;
+  height: 3px;
+  background: #ffffff;
+}
+.menu-btn-burger::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 28px;
+  height: 3px;
+  background: #ffffff;
+}
+.menu-btn-burger::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 28px;
+  height: 3px;
+  background: #ffffff;
+}
+.menu-btn-burger.open {
+  transform: rotate(720deg);
+  background: transparent;
+}
+.menu-btn-burger.open::before {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+.menu-btn-burger.open::after {
+  width: 28px;
+  transform: rotate(-45deg) translate(3px, -7px);
+}
+
+.cards ul {
+  list-style: none;
+}
+.cards ul ul li img {
+  width: 100%;
+}
+.cards .cart-1,
+.cards .cart-2 {
+  width: 800px;
+  margin: 0 auto;
+}
+.cards .btn1 ul,
+.cards .btn2 ul {
+  display: flex;
+  justify-content: space-between;
+}
+.cards .btn1 ul li a,
+.cards .btn2 ul li a {
+  text-decoration: none;
+  color: red;
+}
+.cards .grid-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.cards .grid-1 li {
+  background-color: aquamarine;
+  box-sizing: border-box;
+}
+.cards .grid-1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cards .wrapper-2 {
+  padding: 0;
+  margin: 0;
+}
+.cards .wrapper-2 li {
+  background-color: aquamarine;
+  box-sizing: border-box;
+}
+.cards .wrapper-2 img {
+  width: 300px;
+  height: 300px;
+  display: block;
+  object-fit: fill;
+}
+.cards .wrapper-2 .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.cards .wrapper-2 .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
 body {
   font-size: 1rem;
+  font-family: "Lato", sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*------------------------------------------------
+
+Sass structure >>> https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture
+
+-------------------------------------------------*/
 
 /*# sourceMappingURL=index.css.map */
