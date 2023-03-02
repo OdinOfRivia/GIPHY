@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixin" as m;
+
 .cards {
 	ul {
 		list-style: none;
