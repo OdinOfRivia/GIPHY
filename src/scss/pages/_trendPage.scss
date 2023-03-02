@@ -1,0 +1,15 @@
+@use "../abstracts//variables" as v;
+
+.trend_title {
+	& h4 {
+		display: inline-block;
+		margin-bottom: 0;
+
+		&:hover {
+			transform: scale(110%);
+			& a {
+				color: v.$color-btn;
+			}
+		}
+	}
+}
