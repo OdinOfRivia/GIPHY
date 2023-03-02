@@ -6,8 +6,8 @@ const nav = document.querySelector(".nav");
 
 // Define a function to toggle the menu on click
 const toggleMenu = () => {
-  burgerLine.classList.toggle("open");
-  nav.classList.toggle("open");
+	burgerLine.classList.toggle("open");
+	nav.classList.toggle("open");
 };
 
 // Attach the toggleMenu function to the click event of the menu button
@@ -27,99 +27,103 @@ const trendApi = `${trendUrl}${key}${limit}${rating}${language}`;
 
 // Use arrow function syntax for consistency and to simplify code
 const sendHttpRequest = async (url, method, data) => {
-  // define headers only if data is present to minimize object creation
-  const headers = data ? { "Content-Type": "application/json" } : {};
+	// define headers only if data is present to minimize object creation
+	const headers = data ? { "Content-Type": "application/json" } : {};
 
-  const response = await fetch(url, {
-    method,
-    headers,
-    body: data && JSON.stringify(data),
-  });
+	const response = await fetch(url, {
+		method,
+		headers,
+		body: data && JSON.stringify(data),
+	});
 
-  // return the response data as JSON without logging it
-  return await response.json();
+	// return the response data as JSON without logging it
+	return await response.json();
 };
 
 // Define a function to fetch the most engaging gifs each day using the trending API
 const getTrend = async () => {
-  // send an HTTP GET request to the trending API using the sendHttpRequest function
-  return sendHttpRequest(trendApi, "GET");
+	// send an HTTP GET request to the trending API using the sendHttpRequest function
+	return sendHttpRequest(trendApi, "GET");
 };
 
 // Define a function to search for gifs based on a keyword
 const searchGif = async (keyWord) => {
-  // use template literals to build the URL for the search API
-  const url = `${searchUrl}${key}&q=${keyWord}${limit}${offset}${rating}${language}`;
+	// use template literals to build the URL for the search API
+	const url = `${searchUrl}${key}&q=${keyWord}${limit}${offset}${rating}${language}`;
 
-  // send an HTTP GET request to the search API using the sendHttpRequest function
-  return sendHttpRequest(url, "GET");
+	// send an HTTP GET request to the search API using the sendHttpRequest function
+	return sendHttpRequest(url, "GET");
 };
 
 // Execute the getTrend function when the page is loaded using jQuery
 $(window).on("load", () => {
-  getTrend().then((responseData) => {
-    // log the response data for testing purposes
-    console.log(responseData);
-  }).catch((error) => {
-    // handle any errors that occur during the HTTP request
-    console.error(error);
-  });
+	getTrend()
+		.then((responseData) => {
+			// log the response data for testing purposes
+			console.log(responseData);
+		})
+		.catch((error) => {
+			// handle any errors that occur during the HTTP request
+			console.error(error);
+		});
 });
 
-/**Url for Search api */
-const searchUrl = "https://api.giphy.com/v1/gifs/search";
+// ** remove if not needed anymore **
 
-/** Url for Trending api */
-const trendUrl = "https://api.giphy.com/v1/gifs/trending";
+// /**Url for Search api */
+// const searchUrl = "https://api.giphy.com/v1/gifs/search";
 
-/** Request params for api */
-// Api key
-const key = "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK";
+// /** Url for Trending api */
+// const trendUrl = "https://api.giphy.com/v1/gifs/trending";
 
-// Request Limit
-const limit = "&limit=5";
+// /** Request params for api */
+// // Api key
+// const key = "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK";
 
-// Offset
-const offset = "&offset=0";
+// // Request Limit
+// const limit = "&limit=5";
 
-// Rating Category
-const rating = "&rating=g";
+// // Offset
+// const offset = "&offset=0";
 
-// Language Request
-const language = "&lang=en";
+// // Rating Category
+// const rating = "&rating=g";
 
-/** Url and request params for trend api */
-const trendApi = trendUrl + key + limit + rating + language;
+// // Language Request
+// const language = "&lang=en";
 
-/** Function to send http request to the Giphy server */
-async function sendHttpRequest(url, method, data) {
-	return await fetch(url, {
-		method,
-		...(data && { headers: { "Content-Type": "application/json" } }),
-		...(data && { body: JSON.stringify(data) }),
-	}).then((d) => d.json());
-}
+// /** Url and request params for trend api */
+// const trendApi = trendUrl + key + limit + rating + language;
 
-/** Fetch the data of gifs which is most engaging content each and every day */
-async function getTrend() {
-	const responseData = await sendHttpRequest(trendApi, "GET");
+// /** Function to send http request to the Giphy server */
+// async function sendHttpRequest(url, method, data) {
+// 	return await fetch(url, {
+// 		method,
+// 		...(data && { headers: { "Content-Type": "application/json" } }),
+// 		...(data && { body: JSON.stringify(data) }),
+// 	}).then((d) => d.json());
+// }
 
-	console.log(responseData); /** Testing the response data */
-	// return responseData;
-}
+// /** Fetch the data of gifs which is most engaging content each and every day */
+// async function getTrend() {
+// 	const responseData = await sendHttpRequest(trendApi, "GET");
 
-/** User can decide the keyword in the input field, and recieve it as an param "keyword"*/
-async function searchGif(keyWord) {
-	const url = `${searchUrl + key}&q=${keyWord}${
-		limit + offset + rating + language
-	}`;
-	const responseData = await sendHttpRequest(url, "GET");
+// 	console.log(responseData); /** Testing the response data */
+// 	// return responseData;
+// }
 
-	console.log(responseData); /** Testing the response data */
-	// return responseData;
-}
+// /** User can decide the keyword in the input field, and recieve it as an param "keyword"*/
+// async function searchGif(keyWord) {
+// 	const url = `${searchUrl + key}&q=${keyWord}${
+// 		limit + offset + rating + language
+// 	}`;
+// 	const responseData = await sendHttpRequest(url, "GET");
 
-/** Execute getTrend() when the page loaded so that user can see the popular gifs */
-$(window).on("load", function () {
-	getTrend();
-});
+// 	console.log(responseData); /** Testing the response data */
+// 	// return responseData;
+// }
+
+// /** Execute getTrend() when the page loaded so that user can see the popular gifs */
+// $(window).on("load", function () {
+// 	getTrend();
+// });
