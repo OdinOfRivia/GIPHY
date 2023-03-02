@@ -1,0 +1,16 @@
+@use "./variables" as v;
+
+// media query
+/*--- use like this -----------------
+
+@use "./_mixin.scss" as m;
+
+@include m.mq(md) {
+		font-size: 2rem;
+	}
+------------------------------------*/
+@mixin mq($bp) {
+	@media #{map-get(v.$breakpoint, $bp)} {
+		@content;
+	}
+}
