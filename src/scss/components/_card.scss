@@ -1,9 +1,6 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixin" as m;
 
-h3 {
-	margin: 0;
-}
 
 .cards {
 	ul {
@@ -16,7 +13,14 @@ h3 {
 			}
 		}
 	}
+	& h3 {
+		margin: 0;
+	}
 
+	& a {
+		margin: 0;
+	}
+	
 	.cart-1,
 	.cart-2 {
 		width: 800px;
@@ -24,6 +28,7 @@ h3 {
 		.card-title {
 			display: flex;
 			flex-direction: row;
+			align-items: center;
 			justify-content: space-between;
 			.title {
 				width: 100px;

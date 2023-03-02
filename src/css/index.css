@@ -140,15 +140,17 @@ header .menu h1 {
   transform: rotate(-45deg) translate(3px, -7px);
 }
 
-h3 {
-  margin: 0;
-}
-
 .cards ul {
   list-style: none;
 }
 .cards ul ul li img {
   width: 100%;
+}
+.cards h3 {
+  margin: 0;
+}
+.cards a {
+  margin: 0;
 }
 .cards .cart-1,
 .cards .cart-2 {
@@ -159,6 +161,7 @@ h3 {
 .cards .cart-2 .card-title {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 .cards .cart-1 .card-title .title,
