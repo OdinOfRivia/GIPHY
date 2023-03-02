@@ -228,6 +228,14 @@ body {
   padding: 0;
   background-color: #000000;
   color: #ffffff;
+  width: 95%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  body {
+    width: 90%;
+    max-width: 1200px;
+  }
 }
 
 li {
@@ -237,6 +245,17 @@ li {
 a {
   text-decoration: none;
   color: #ffffff;
+}
+
+.trend_title h4 {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.trend_title h4:hover {
+  transform: scale(110%);
+}
+.trend_title h4:hover a {
+  color: #fe47bb;
 }
 
 /*------------------------------------------------
