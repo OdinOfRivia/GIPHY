@@ -1,7 +1,17 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixin" as m;
 
+body{
+  background-image: url(/src/img/loading3.gif);
+  background-position: center center;
+}
+
+.marg{
+  margin-bottom: 69px;
+}
+
 .cards {
+  
   ul {
     list-style: none;
     ul {
@@ -70,8 +80,11 @@
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 10px;
       li {
-        background-color: aquamarine;
-        box-sizing: border-box;
+        // background-color: aquamarine;
+          // background-color: aquamarine;
+          background-image: url(/src/img/loading6.gif);
+          background-position: center center;
+          background-size:cover;
       }
       img {
         width: 100%;
@@ -85,7 +98,10 @@
       margin: 0;
 
       li {
-        background-color: aquamarine;
+        // background-color: aquamarine;
+        background-image: url(/src/img/loading6.gif);
+        background-position: center center;
+        background-size:cover;
         box-sizing: border-box;
       }
 
