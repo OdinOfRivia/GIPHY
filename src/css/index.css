@@ -140,12 +140,6 @@ header .menu h1 {
   transform: rotate(-45deg) translate(3px, -7px);
 }
 
-.cards ul {
-  list-style: none;
-}
-.cards ul ul li img {
-  width: 100%;
-}
 .cards h3 {
   margin: 0;
 }
@@ -160,7 +154,7 @@ header .menu h1 {
 .cards .cart-1 .card-title,
 .cards .cart-2 .card-title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
@@ -168,12 +162,13 @@ header .menu h1 {
 .cards .cart-2 .card-title .title {
   width: 100px;
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
 .cards .btn1 ul,
 .cards .btn2 ul {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 .cards .btn1 ul li a,
 .cards .btn2 ul li a {
@@ -255,7 +250,7 @@ a {
   transform: scale(110%);
 }
 .trend_title h4:hover a {
-  color: #fe47bb;
+  color: #2bf697;
 }
 
 /*------------------------------------------------
