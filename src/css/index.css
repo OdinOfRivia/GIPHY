@@ -223,7 +223,8 @@ body {
 .cards .cart-2 .grid-1 li {
   background-image: url(/src/img/loading6.gif);
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .cards .cart-1 .grid-1 img,
 .cards .cart-2 .grid-1 img {
@@ -240,7 +241,7 @@ body {
 .cards .cart-2 .wrapper-2 li {
   background-image: url(/src/img/loading6.gif);
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
   box-sizing: border-box;
 }
 .cards .cart-1 .wrapper-2 img,

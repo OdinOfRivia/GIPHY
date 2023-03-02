@@ -4,6 +4,7 @@
 body{
   background-image: url(/src/img/loading3.gif);
   background-position: center center;
+
 }
 
 .marg{
@@ -84,7 +85,8 @@ body{
           // background-color: aquamarine;
           background-image: url(/src/img/loading6.gif);
           background-position: center center;
-          background-size:cover;
+          background-size:contain;
+          background-repeat: no-repeat;
       }
       img {
         width: 100%;
@@ -101,14 +103,13 @@ body{
         // background-color: aquamarine;
         background-image: url(/src/img/loading6.gif);
         background-position: center center;
-        background-size:cover;
+        background-size:contain;
         box-sizing: border-box;
       }
 
       img {
         width: 100%;
         height: auto;
-
         display: block;
         object-fit: fill;
       }
