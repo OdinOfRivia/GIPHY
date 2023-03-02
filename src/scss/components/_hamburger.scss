@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixin" as m;
+
+.menu-btn {
+	position: absolute;
+	z-index: 10;
+	right: 1rem;
+	top: 1rem;
+	height: 20px;
+	width: 28px;
+	cursor: pointer;
+
+	@include m.mq(md) {
+		display: none;
+	}
+
+	&-burger {
+		position: absolute;
+		right: 0;
+		top: 0.5rem;
+		width: 28px;
+		height: 3px;
+		background: v.$color-main;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -8px;
+			width: 28px;
+			height: 3px;
+			background: v.$color-main;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 8px;
+			width: 28px;
+			height: 3px;
+			background: v.$color-main;
+		}
+
+		&.open {
+			transform: rotate(720deg);
+			background: transparent;
+
+			&::before {
+				transform: rotate(45deg) translate(5px, 8px);
+			}
+
+			&::after {
+				width: 28px;
+				transform: rotate(-45deg) translate(3px, -7px);
+			}
+		}
+	}
+}
