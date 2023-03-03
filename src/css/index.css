@@ -147,7 +147,6 @@ header .menu h1 {
   transform: rotate(-45deg) translate(3px, -7px);
 }
 
-
 .cards {
   width: 90%;
   margin: 0 auto;
@@ -195,11 +194,12 @@ header .menu h1 {
   padding: 0;
 }
 .cards .grid-1 li {
+  background-color: aquamarine;
   box-sizing: border-box;
 }
 .cards .grid-1 img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
 }
 .cards .wrapper-2 {
@@ -207,6 +207,7 @@ header .menu h1 {
   margin: 0;
 }
 .cards .wrapper-2 li {
+  background-color: aquamarine;
   box-sizing: border-box;
 }
 .cards .wrapper-2 img {
