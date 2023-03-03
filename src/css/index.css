@@ -15,7 +15,7 @@
   margin: 0 auto;
 }
 .search-content .search-btn {
-  background-color: #fe47bb;
+  background-color: #9aff57;
   border-color: #ffffff;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -70,7 +70,7 @@ header .menu h1 {
   transform: scale(105%);
 }
 .nav li a:hover {
-  color: #fe47bb;
+  color: #9aff57;
 }
 @media screen and (min-width: 768px) {
   .nav li {
@@ -140,32 +140,41 @@ header .menu h1 {
   transform: rotate(-45deg) translate(3px, -7px);
 }
 
-.cards .cart-1,
-.cards .cart-2 {
+.cards {
   width: 800px;
   margin: 0 auto;
 }
-.cards .cart-1 .card-title,
-.cards .cart-2 .card-title {
+.cards .cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.cards .cart .content-title {
+  display: flex;
+  flex-direction: row;
+}
+.cards .cart .content-title h3 {
+  margin-left: 10px;
+}
+.cards .cart .btn1,
+.cards .cart .btn2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 }
-.cards .cart-1 .card-title .title,
-.cards .cart-2 .card-title .title {
-  width: 100px;
-  display: flex;
-  flex-direction: row;
+.cards .cart .btn1 a,
+.cards .cart .btn2 a {
+  font-size: small;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
 }
-.cards .btn1 ul,
-.cards .btn2 ul {
-  display: flex;
-  justify-content: space-between;
-}
-.cards .btn1 ul li a,
-.cards .btn2 ul li a {
-  text-decoration: none;
+.cards .cart .btn1 img,
+.cards .cart .btn2 img {
+  width: 30%;
+  height: auto;
 }
 .cards .grid-1 {
   display: grid;
@@ -243,7 +252,7 @@ a {
   transform: scale(110%);
 }
 .trend_title h4:hover a {
-  color: #fe47bb;
+  color: #9aff57;
 }
 
 /*------------------------------------------------
