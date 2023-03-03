@@ -2,9 +2,11 @@
 @use "../abstracts/mixin" as m;
 
 body{
-  background-image: url(/src/img/loading3.gif);
+  background-image: url(/src/img/gifs/loading3.gif);
   background-position: center center;
-
+  // background-blend-mode: hard-light;
+  // background-repeat: repeat-x(2) repeat-y;
+  // background-size: cover;
 }
 
 .marg{
@@ -83,7 +85,7 @@ body{
       li {
         // background-color: aquamarine;
           // background-color: aquamarine;
-          background-image: url(/src/img/loading6.gif);
+          background-image: url(/src/img//gifs/loading7.gif);
           background-position: center center;
           background-size:contain;
           background-repeat: no-repeat;
@@ -98,14 +100,6 @@ body{
     .wrapper-2 {
       padding: 0;
       margin: 0;
-
-      li {
-        // background-color: aquamarine;
-        background-image: url(/src/img/loading6.gif);
-        background-position: center center;
-        background-size:contain;
-        box-sizing: border-box;
-      }
 
       img {
         width: 100%;
