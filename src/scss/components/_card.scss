@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
 
       .content-title {
       // width: 100px;
@@ -51,6 +51,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    padding: 0;
     li {
       background-color: aquamarine;
       box-sizing: border-box;
@@ -83,11 +84,13 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 10px;
+      padding: 0;
     }
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 10px;
+      padding: 0;
     }
   }
 }
