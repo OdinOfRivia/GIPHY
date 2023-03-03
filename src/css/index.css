@@ -15,10 +15,15 @@
   margin: 0 auto;
 }
 .search-content .search-btn {
-  background-color: #9aff57;
+  background-color: #5cd80a;
   border-color: #ffffff;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+.search-content .search-btn img {
+  vertical-align: middle;
+  width: 80%;
+  height: auto;
 }
 .search-content .search-btn:hover {
   cursor: pointer;
@@ -42,7 +47,7 @@
   }
 }
 header .menu h1 {
-  padding-left: 2rem;
+  padding-left: 3rem;
 }
 
 .nav {
@@ -57,7 +62,7 @@ header .menu h1 {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .nav.open {
   transform: translateX(0);
@@ -70,7 +75,7 @@ header .menu h1 {
   transform: scale(105%);
 }
 .nav li a:hover {
-  color: #9aff57;
+  color: #5cd80a;
 }
 @media screen and (min-width: 768px) {
   .nav li {
@@ -149,7 +154,7 @@ header .menu h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .cards .cart .content-title {
   display: flex;
@@ -184,6 +189,7 @@ header .menu h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  padding: 0;
 }
 .cards .grid-1 li {
   background-color: aquamarine;
@@ -212,11 +218,13 @@ header .menu h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  padding: 0;
 }
 .cards .wrapper-2 .grid-3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+  padding: 0;
 }
 
 body {
@@ -256,7 +264,7 @@ a {
   transform: scale(110%);
 }
 .trend_title h4:hover a {
-  color: #9aff57;
+  color: #5cd80a;
 }
 
 /*------------------------------------------------
