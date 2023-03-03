@@ -19,7 +19,7 @@ h3 {
 
 	.cart-1,
 	.cart-2 {
-		width: 800px;
+		width: 1000px;
 		margin: 0 auto;
 		.card-title {
 			display: flex;
@@ -51,12 +51,13 @@ h3 {
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 10px;
 		li {
-			background-color: aquamarine;
+			// background-color: aquamarine;
+			// background-image: url("../../img/bolt.svg");
 			box-sizing: border-box;
 		}
 		img {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			display: block;
 		}
 	}
@@ -66,7 +67,7 @@ h3 {
 		margin: 0;
 
 		li {
-			background-color: aquamarine;
+			// background-color: aquamarine;
 			box-sizing: border-box;
 		}
 
