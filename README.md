@@ -1,11 +1,3 @@
-### READ MEEEEEE!!!!!
-
-Make sure your local repository is always UP TO DATE!!
-`git pull origin main`
-I recommend every time run this command before editing your file...
-
-====================================================================
-
 ## First thing first...
 
 Install to your Local Machine
