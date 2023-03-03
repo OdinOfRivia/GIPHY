@@ -15,6 +15,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"defer></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/EaselPlugin.min.js" defer></script>
 		<script src="./index.js" defer></script>
+		<script src="./src/main.js" defer></script>
 
 		<title>GIPHY</title>
 	</head>
@@ -84,7 +85,7 @@
 								/>
 							</li>
              </template>
-							<li class="an2">
+							<!-- <li class="an2">
 								<img
 									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
 									alt=""
@@ -102,7 +103,7 @@
 									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
 									alt=""
 								/>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -120,55 +121,15 @@
 					 </div>
 				 </div>
 				 <div class="wrapper-2">
-					 <ul class="grid-2 grid">
-						 <li class="r1 an1">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-						 <li class="r1 an1">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-						 <li class="r1 an1">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-					 </ul>
-					 <ul class="grid-3 grid">
-						 <li class="r2 an2">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
- 
-						 <li class="r2 an2">
- 
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
- 
-						 <li class="r2 an2">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-						 <li class="r2 an2">
- 
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
+					 <ul class="grid-2 grid" id="clips">
+						<template id="clip-template">
+							<li class="r1 an1">
+								<img
+									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
+									alt=""
+								/>
+							</li>
+						</template>
 					 </ul>
 				 </div>
 			 </div>
@@ -192,49 +153,16 @@
 						</div> -->
 					</div>
 					<div class="wrapper">
-						<ul class="grid-1 grid1">
-							<li class="an1">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-	
-							<li class="an1">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-	
-							<li class="an1">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-							<li class="an2">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-							<li class="an2">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
+						<ul class="grid-1 grid1" id="stories">
+							<template id="story-template">
+								<li class="an1">
+									<img
+										src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
+										alt=""
+									/>
+								</li>
+							</template> 
 						</ul>
-					</div>
-				</div>
-							<li class="an2" >
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-						</ul> -->
 					</div>
 				</div>
 
@@ -251,8 +179,8 @@
 					 </div>
 				 </div>
 				 <div class="wrapper-2">
-					 <ul class="grid-2 grid">
-            <template id="clipTemplate">
+					 <ul class="grid-2 grid" id="artists">
+            <template id="artist-template">
 						 <li class="r1 an1">
 							 <img
 								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
@@ -260,36 +188,6 @@
 							 />
 						 </li>
             </template>
-					 </ul>
-					 <ul class="grid-3 grid">
-						 <li class="r2 an2">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
- 
-						 <li class="r2 an2">
- 
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
- 
-						 <li class="r2 an2">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-						 <li class="r2 an2">
- 
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
 					 </ul>
 				 </div>
 			 </div>

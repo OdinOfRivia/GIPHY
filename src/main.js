@@ -1,4 +1,3 @@
-
 // hamburger menu
 const menuBtn = document.querySelector(".menu-btn");
 const burgerLine = document.querySelector(".menu-btn-burger");
@@ -6,8 +5,11 @@ const nav = document.querySelector(".nav");
 const templateGrid1 = document.querySelector("#template1");
 const grid1 = document.querySelector(".grid-1");
 const clips = document.querySelector("#clips");
-const clipTemplate = document.querySelector("#clipTemplate");
-
+const clipTemplate = document.querySelector("#clip-template");
+const stories = document.querySelector("#stories");
+const storyTemplate = document.querySelector("#story-template");
+const artists = document.querySelector("#artists");
+const artistTemplate = document.querySelector("#artist-template");
 
 const toggleMenu = () => {
   burgerLine.classList.toggle("open");
@@ -18,7 +20,7 @@ menuBtn.addEventListener("click", toggleMenu);
 
 /**Url for Search api */
 const searchUrl = "https://api.giphy.com/v1/gifs/search";
-const trendUrl = "https://api.giphy.com/v1/gifs/trending";
+
 // const key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
 const key =
   "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK"; /** This is Yuno's key for testing :) */
@@ -47,6 +49,7 @@ const sendHttpRequest = async (url, method, data) => {
 
 // Define a function to fetch the most engaging gifs each day using the trending API
 const getTrend = async () => {
+  const trendApi = trendUrl + key + limit + offset + rating + language;
   // send an HTTP GET request to the trending API using the sendHttpRequest function
   const response = await sendHttpRequest(trendApi, "GET");
   const responseData = response.data;
@@ -55,33 +58,48 @@ const getTrend = async () => {
   if (responseData.length > 0) {
     for (let i = 0; i < responseData.length; i++) {
       const gifElClone = document.importNode(templateGrid1.content, true);
-      gifElClone.querySelector("li").id = responseData[i].id;
+      gifElClone.querySelector("li.an1").id = responseData[i].id;
       gifElClone.querySelector("img").src = responseData[i].images.original.url;
       grid1.appendChild(gifElClone);
     }
   }
 };
 
-const getClips = async () => {
-  const url = `${searchUrl}${key}&q=clips${limit}${offset}${rating}${language}`;
+/** Get clips, stories, artists gifs  */
+const getGifs = async (keyword) => {
+  const url = `${searchUrl}${key}&q=${keyword}${limit}${offset}${rating}${language}`;
   const response = await sendHttpRequest(url, "GET");
   const responseData = response.data;
 
   /**  */
   if (responseData.length > 0) {
     for (let i = 0; i < responseData.length; i++) {
-      const gifElClone = document.importNode(clipTemplate.content, true);
-      gifElClone.querySelector("li.r1").id = responseData[i].id;
+      let gifElClone;
+      if (keyword === "clips") {
+        gifElClone = document.importNode(clipTemplate.content, true);
+      } else if (keyword === "stories") {
+        gifElClone = document.importNode(storyTemplate.content, true);
+      } else if (keyword === "artists") {
+        gifElClone = document.importNode(artistTemplate.content, true);
+      }
+      gifElClone.querySelector("li").id = responseData[i].id;
       gifElClone.querySelector("img").src = responseData[i].images.original.url;
-      clips.appendChild(gifElClone);
+
+      if (keyword === "clips") {
+        clips.appendChild(gifElClone);
+      } else if (keyword === "stories") {
+        stories.appendChild(gifElClone);
+      } else if (keyword === "artists") {
+        artists.appendChild(gifElClone);
+      }
     }
   }
 };
 
 // Define a function to search for gifs based on a keyword
-const searchGif = async (keyWord) => {
+const searchGif = async (keyword) => {
   // use template literals to build the URL for the search API
-  const url = `${searchUrl}${key}&q=${keyWord}${limit}${offset}${rating}${language}`;
+  const url = `${searchUrl}${key}&q=${keyword}${limit}${offset}${rating}${language}`;
 
   // send an HTTP GET request to the search API using the sendHttpRequest function
   return sendHttpRequest(url, "GET");
@@ -90,6 +108,7 @@ const searchGif = async (keyWord) => {
 // Execute the getTrend function when the page is loaded using jQuery
 $(window).on("load", () => {
   getTrend();
-  getClips();
+  getGifs("clips");
+  getGifs("stories");
+  getGifs("artists");
 });
-
