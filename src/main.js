@@ -2,6 +2,8 @@
 const menuBtn = document.querySelector(".menu-btn");
 const burgerLine = document.querySelector(".menu-btn-burger");
 const nav = document.querySelector(".nav");
+
+/** select them to put gifs */
 const templateGrid1 = document.querySelector("#template1");
 const grid1 = document.querySelector(".grid-1");
 const clips = document.querySelector("#clips");
