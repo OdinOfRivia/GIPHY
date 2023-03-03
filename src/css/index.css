@@ -141,7 +141,7 @@ header .menu h1 {
 }
 
 .cards {
-  width: 800px;
+  width: 90%;
   margin: 0 auto;
 }
 .cards .cart {
@@ -156,7 +156,11 @@ header .menu h1 {
   flex-direction: row;
 }
 .cards .cart .content-title h3 {
+  font-size: medium;
   margin-left: 10px;
+}
+.cards .cart .content-title img {
+  width: 30%;
 }
 .cards .cart .btn1,
 .cards .cart .btn2 {
