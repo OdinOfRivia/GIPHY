@@ -258,15 +258,22 @@ a {
   color: #ffffff;
 }
 
-.trend_title h4 {
+h4 {
   display: inline-block;
   margin-bottom: 0;
 }
-.trend_title h4:hover {
+h4:hover {
   transform: scale(110%);
 }
-.trend_title h4:hover a {
+h4:hover a {
   color: #5cd80a;
+}
+
+.trend-title {
+  display: flex;
+}
+.trend-title h1 {
+  padding-right: 1rem;
 }
 
 /*------------------------------------------------
