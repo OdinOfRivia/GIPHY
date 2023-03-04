@@ -11,19 +11,32 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-		<script src="./src/main.js" defer></script>
-		<script src="./src/animation.js" defer></script>
+		<script src="./src/trend.js" defer></script>
 		<title>Trend</title>
 	</head>
 	<body>
 		<main>
-			<div class="trend_title">
-				<h4><a href="./index.html">< Back to Home</a></h4>
+      <h4><a href="./index.html">< Back to Home</a></h4>
+			<div class="trend-title">
 				<h1>Trend GIF</h1>
+        <img src="src/img/trending_up.svg" alt="" />
 			</div>
-			<div class="trend_cards">
-				<!-- trend card here... -->
-			</div>
+      <section class="cards">
+        <!-- ------------ Tranding ------------ -->
+        <div class="card">
+          <div class="cart">
+          </div>
+          <div class="wrapper">
+            <ul class="grid-1 grid1" id="trends">
+              <template id="trend-template">
+                <li class="">
+                  <img src="" alt="" />
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+    </div>
 		</main>
 	</body>
 </html>
