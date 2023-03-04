@@ -2,111 +2,96 @@
 @use "../abstracts/mixin" as m;
 
 .cards {
-  ul {
-    list-style: none;
-    ul {
-      li {
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
+	width: 90%;
+  margin: 0 auto;
+	.cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
 
-  & h3 {
-    margin: 0;
-  }
-
-  & a {
-    margin: 0;
-  }
-
-  .cart-1,
-  .cart-2 {
-    width: 800px;
-    margin: 0 auto;
-    .card-title {
+      .content-title {
+      // width: 100px;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      .title {
-        width: 100px;
+       h3 {
+        font-size: medium;
+        margin-left: 10px;
+       }
+       img {
+        width: 30%;
+       }
+			}
+      .btn1,
+      .btn2 {
         display: flex;
         flex-direction: row;
-      }
-    }
-
-    .cart-1,
-    .cart-2 {
-      width: 1050 auto;
-      margin: 0 auto;
-      padding-right: 5%;
-    }
-
-    .btn1,
-    .btn2 {
-      ul {
-        display: flex;
-        justify-content: space-between;
-        li {
-          a {
-            text-decoration: none;
-
-            color: white;
-          }
-          a:hover {
-            color: rgb(253, 70, 187);
-          }
+        align-items: center;
+        a {
+          font-size: small;
+          margin: 0;
+          padding: 0;
+          vertical-align: middle;
         }
-        & li:hover {
-          transform: scale(110%);
+        img {
+          width: 30%;
+          height: auto;
         }
-      }
+        // outline: none;
+        // background-color: black;
+        // color: white;
+  
+        // align-items: center;
+        // justify-content: space-between;
+		}
+	}
+
+  .grid-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 0;
+    li {
+      background-color: aquamarine;
+      box-sizing: border-box;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .wrapper-2 {
+    padding: 0;
+    margin: 0;
+
+    li {
+      background-color: aquamarine;
+      box-sizing: border-box;
     }
 
-    .grid-1 {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: fill;
+    }
+
+    .grid-2 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 10px;
-      li {
-        background-color: aquamarine;
-        box-sizing: border-box;
-      }
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    }
-
-    .wrapper-2 {
       padding: 0;
-      margin: 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      padding: 0;
 
-      li {
-        background-color: aquamarine;
-        box-sizing: border-box;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-
-        display: block;
-        object-fit: fill;
-      }
-
-      .grid-2 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
-      }
     }
   }
 }
+
