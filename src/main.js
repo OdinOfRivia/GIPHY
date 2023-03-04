@@ -2,8 +2,10 @@
 const menuBtn = document.querySelector(".menu-btn");
 const burgerLine = document.querySelector(".menu-btn-burger");
 const nav = document.querySelector(".nav");
-const templateGrid1 = document.querySelector("#template1");
-const grid1 = document.querySelector(".grid-1");
+
+/** select them to put gifs */
+const grid1 = document.querySelector("#trends");
+const templateGrid1 = document.querySelector("#trend-template");
 const clips = document.querySelector("#clips");
 const clipTemplate = document.querySelector("#clip-template");
 const stories = document.querySelector("#stories");
@@ -24,7 +26,7 @@ const searchUrl = "https://api.giphy.com/v1/gifs/search";
 // const key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
 const key =
   "?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK"; /** This is Yuno's key for testing :) */
-const limit = "&limit=9";
+const limit = "&limit=6";
 const offset = "&offset=0";
 const rating = "&rating=g";
 const language = "&lang=en";
@@ -53,13 +55,18 @@ const getTrend = async () => {
   // send an HTTP GET request to the trending API using the sendHttpRequest function
   const response = await sendHttpRequest(trendApi, "GET");
   const responseData = response.data;
-
   /** Put the gifs in the list "grid-1" */
   if (responseData.length > 0) {
     for (let i = 0; i < responseData.length; i++) {
       const gifElClone = document.importNode(templateGrid1.content, true);
-      gifElClone.querySelector("li.an1").id = responseData[i].id;
+      if (i < 3) {
+        gifElClone.querySelector("li").className = "an1";
+      } else if (i >= 3) {
+        gifElClone.querySelector("li").className = "an2";
+      }
+      gifElClone.querySelector("li").id = responseData[i].id;
       gifElClone.querySelector("img").src = responseData[i].images.original.url;
+
       grid1.appendChild(gifElClone);
     }
   }
@@ -71,7 +78,15 @@ const getGifs = async (keyword) => {
   const response = await sendHttpRequest(url, "GET");
   const responseData = response.data;
 
-  /**  */
+  let parent;
+  if (keyword === "clips") {
+    parent = clips;
+  } else if (keyword === "stories") {
+    parent = stories;
+  } else if (keyword === "artists") {
+    parent = artists;
+  }
+
   if (responseData.length > 0) {
     for (let i = 0; i < responseData.length; i++) {
       let gifElClone;
@@ -82,16 +97,18 @@ const getGifs = async (keyword) => {
       } else if (keyword === "artists") {
         gifElClone = document.importNode(artistTemplate.content, true);
       }
+      if (i < 3) {
+        // console.log(gifElClone.querySelector("li"));
+        gifElClone.querySelector("li").className = "an1";
+      } else if (i >= 3) {
+        // console.log(gifElClone.querySelector("li"));
+        gifElClone.querySelector("li").className = "an2";
+      }
+
       gifElClone.querySelector("li").id = responseData[i].id;
       gifElClone.querySelector("img").src = responseData[i].images.original.url;
 
-      if (keyword === "clips") {
-        clips.appendChild(gifElClone);
-      } else if (keyword === "stories") {
-        stories.appendChild(gifElClone);
-      } else if (keyword === "artists") {
-        artists.appendChild(gifElClone);
-      }
+      parent.appendChild(gifElClone);
     }
   }
 };

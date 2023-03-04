@@ -1,199 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./src/css/index.css" />
-		<script
-			src="https://code.jquery.com/jquery-3.6.3.js"
-			integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-			crossorigin="anonymous"
-		></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous"
+    ></script>
 
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"defer></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/EaselPlugin.min.js" defer></script>
-		<script src="./index.js" defer></script>
-		<script src="./src/main.js" defer></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/EaselPlugin.min.js"
+      defer
+    ></script>
+    <script src="./index.js" defer></script>
+    <script src="./src/main.js" defer></script>
 
-		<title>GIPHY</title>
-	</head>
-	<body>
-		<header>
-			<div class="menu-btn">
-				<span class="menu-btn-burger"></span>
-			</div>
-			<div class="menu">
-				<h1>
-					GIPHY
-					<!-- <img class="logo" alt="#"> -->
-				</h1>
-				<nav>
-					<ul class="nav">
-						<li><a href="#">Reactions</a></li>
-						<li><a href="#">Entertaiment</a></li>
-						<li><a href="#">Sports</a></li>
-						<li><a href="#">Stickers</a></li>
-						<li><a href="#">Artists</a></li>
-					</ul>
-				</nav>
-			</div>
-			<!-- <div class="top-header">
+    <title>GIPHY</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <span class="menu-btn-burger"></span>
+      </div>
+      <div class="menu">
+        <h1>
+          GIPHY
+          <!-- <img class="logo" alt="#"> -->
+        </h1>
+        <nav>
+          <ul class="nav">
+            <li><a href="#">Reactions</a></li>
+            <li><a href="#">Entertaiment</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Stickers</a></li>
+            <li><a href="#">Artists</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- <div class="top-header">
 				<div class="top-icon">
 					<img src="src/img/favorite.svg" alt="#" />
 					<img src="src/img/density.svg" alt="#" />
 				</div>
 			</div> -->
-		</header>
+    </header>
 
-		<main>
-			<div class="search-content">
-				<input type="text" class="search" name="Serch" id="search" />
-				<button class="search-btn">
-					<img src="./src/img/search.svg" id="serch-btn" />
-				</button>
-			</div>
-			<!-- <div class="top-img">
+    <main>
+      <div class="search-content">
+        <input type="text" class="search" name="Serch" id="search" />
+        <button class="search-btn">
+          <img src="./src/img/search.svg" id="serch-btn" />
+        </button>
+      </div>
+      <!-- <div class="top-img">
 				<img src="#" alt="#" id="top-img" />
 			</div> -->
-			<section class="cards">
-				<!-- ------------ Tranding ------------ -->
-				<div class="card">
-					<div class="cart">
-						<div class="content-title">
-							<img src="src/img/trending_up.svg" alt="">
-							<h3><a href="./trendPage.html">Trending</a></h3>
-						</div>
-						<div class="btn1">
-							<a href="./trendPage.html">All GIFs</a>
-							<img src="src/img/chevron_righ.svg" alt="">					
-						</div>
-						<!-- <div class="btn1">
+      <section class="cards">
+        <!-- ------------ Tranding ------------ -->
+        <div class="card">
+          <div class="cart">
+            <div class="content-title">
+              <img src="src/img/trending_up.svg" alt="" />
+              <h3><a href="./trendPage.html">Trending</a></h3>
+            </div>
+            <div class="btn1">
+              <a href="./trendPage.html">All GIFs</a>
+              <img src="src/img/chevron_righ.svg" alt="" />
+            </div>
+            <!-- <div class="btn1">
 							<a href="./trendPage.html">
 								<button href="">All GIFs<img src="src/img/chevron_righ.svg" alt=""></button>
 							</a>					
 						</div> -->
-					</div>
-					<div class="wrapper">
-						<ul class="grid-1 grid1">
-            <template id="template1">
-							<li class="an1">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-             </template>
-							<!-- <li class="an2">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-							<li class="an2">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-	
-							<li class="an2" >
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li> -->
-						</ul>
-					</div>
-				</div>
+          </div>
+          <div class="wrapper">
+            <ul class="grid-1 grid1" id="trends">
+              <template id="trend-template">
+                <li class="">
+                  <img src="" alt="" />
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
 
-				<!-- ------------ Clips ------------ -->
-			 <div class="card">
-				 <div class="cart">
-					 <div class="content-title">
-						 <img src="src/img/play_circle.svg" alt="">
-						 <h3><a href="./trendPage.html">Clips</a></h3>
-					 </div>
-					 <div class="btn2">
-						 <a href="./trendPage.html">All Clips</a>
-						 <img src="src/img/chevron_righ.svg" alt="">					
-					 </div>
-				 </div>
-				 <div class="wrapper-2">
-					 <ul class="grid-2 grid" id="clips">
-						<template id="clip-template">
-							<li class="r1 an1">
-								<img
-									src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-									alt=""
-								/>
-							</li>
-						</template>
-					 </ul>
-				 </div>
-			 </div>
-			</section>
-			<section class="cards">
-				<!-- ------------ Tranding ------------ -->
-				<div class="card">
-					<div class="cart">
-						<div class="content-title">
-							<img src="src/img/smart_display.svg" alt="">
-							<h3><a href="./trendPage.html">Stories</a></h3>
-						</div>
-						<div class="btn1">
-							<a href="./trendPage.html">All Stories</a>
-							<img src="src/img/chevron_righ.svg" alt="">					
-						</div>
-						<!-- <div class="btn1">
+        <!-- ------------ Clips ------------ -->
+        <div class="card">
+          <div class="cart">
+            <div class="content-title">
+              <img src="src/img/play_circle.svg" alt="" />
+              <h3><a href="./trendPage.html">Clips</a></h3>
+            </div>
+            <div class="btn2">
+              <a href="./trendPage.html">All Clips</a>
+              <img src="src/img/chevron_righ.svg" alt="" />
+            </div>
+          </div>
+          <div class="wrapper-2">
+            <ul class="grid-2 grid" id="clips">
+              <template id="clip-template">
+                <li class="">
+                  <img src="" alt="" />
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="cards">
+        <!-- ------------ Tranding ------------ -->
+        <div class="card">
+          <div class="cart">
+            <div class="content-title">
+              <img src="src/img/smart_display.svg" alt="" />
+              <h3><a href="./trendPage.html">Stories</a></h3>
+            </div>
+            <div class="btn1">
+              <a href="./trendPage.html">All Stories</a>
+              <img src="src/img/chevron_righ.svg" alt="" />
+            </div>
+            <!-- <div class="btn1">
 							<a href="./trendPage.html">
 								<button href="">All GIFs<img src="src/img/chevron_righ.svg" alt=""></button>
 							</a>					
 						</div> -->
-					</div>
-					<div class="wrapper">
-						<ul class="grid-1 grid1" id="stories">
-							<template id="story-template">
-								<li class="an1">
-									<img
-										src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-										alt=""
-									/>
-								</li>
-							</template> 
-						</ul>
-					</div>
-				</div>
+          </div>
+          <div class="wrapper">
+            <ul class="grid-1 grid1" id="stories">
+              <template id="story-template">
+                <li class="">
+                  <img src="" alt="" />
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
 
-				<!-- ------------ Clips ------------ -->
-			 <div class="card">
-				 <div class="cart">
-					 <div class="content-title">
-						 <img src="src/img/favorite.svg" alt="">
-						 <h3><a href="./trendPage.html">Artist</a></h3>
-					 </div>
-					 <div class="btn2">
-						 <a href="./trendPage.html">Artist</a>
-						 <img src="src/img/chevron_righ.svg" alt="">					
-					 </div>
-				 </div>
-				 <div class="wrapper-2">
-					 <ul class="grid-2 grid" id="artists">
-            <template id="artist-template">
-						 <li class="r1 an1">
-							 <img
-								 src="https://goallclear.com/wp-content/uploads/2022/04/F-16-allclear.jpg"
-								 alt=""
-							 />
-						 </li>
-            </template>
-					 </ul>
-				 </div>
-			 </div>
-			</section>
-
-		</main>
-	</body>
+        <!-- ------------ Clips ------------ -->
+        <div class="card">
+          <div class="cart">
+            <div class="content-title">
+              <img src="src/img/favorite.svg" alt="" />
+              <h3><a href="./trendPage.html">Artist</a></h3>
+            </div>
+            <div class="btn2">
+              <a href="./trendPage.html">Artist</a>
+              <img src="src/img/chevron_righ.svg" alt="" />
+            </div>
+          </div>
+          <div class="wrapper-2">
+            <ul class="grid-2 grid" id="artists">
+              <template id="artist-template">
+                <li class="">
+                  <img src="" alt="" />
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
-
