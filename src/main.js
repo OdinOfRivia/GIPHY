@@ -3,6 +3,9 @@ const menuBtn = document.querySelector(".menu-btn");
 const burgerLine = document.querySelector(".menu-btn-burger");
 const nav = document.querySelector(".nav");
 
+/** Fetch count for infinite scroll*/
+let fetchCount = 6;
+
 /** select them to put gifs */
 const grid1 = document.querySelector("#trends");
 const templateGrid1 = document.querySelector("#trend-template");
@@ -26,7 +29,6 @@ const searchUrl = "https://api.giphy.com/v1/gifs/search";
 // const key = "?api_key=EpaFLvbdU1y8QN2BH18EPGe86kSg8S77";
 const key =
 	"?api_key=NU4sW44isKZGQFbQjDanji7HIM4XYkpK"; /** This is Yuno's key for testing :) */
-const limit = "&limit=6";
 const offset = "&offset=0";
 const rating = "&rating=g";
 const language = "&lang=en";
@@ -50,7 +52,8 @@ const sendHttpRequest = async (url, method, data) => {
 };
 
 // Define a function to fetch the most engaging gifs each day using the trending API
-const getTrend = async () => {
+const getTrend = async (count = 6) => {
+	const limit = `&limit=${count}`;
 	const trendApi = trendUrl + key + limit + offset + rating + language;
 	// send an HTTP GET request to the trending API using the sendHttpRequest function
 	const response = await sendHttpRequest(trendApi, "GET");
@@ -74,7 +77,8 @@ const getTrend = async () => {
 };
 
 /** Get clips, stories, artists gifs  */
-const getGifs = async (keyword) => {
+const getGifs = async (keyword, count = 6) => {
+	const limit = `&limit=${count}`;
 	const url = `${searchUrl}${key}&q=${keyword}${limit}${offset}${rating}${language}`;
 	const response = await sendHttpRequest(url, "GET");
 	const responseData = response.data;
@@ -99,10 +103,8 @@ const getGifs = async (keyword) => {
 				gifElClone = document.importNode(artistTemplate.content, true);
 			}
 			if (i < 3) {
-				// console.log(gifElClone.querySelector("li"));
 				gifElClone.querySelector("li").className = "an1";
 			} else if (i >= 3) {
-				// console.log(gifElClone.querySelector("li"));
 				gifElClone.querySelector("li").className = "an2";
 			}
 
@@ -124,11 +126,48 @@ const searchGif = async (keyword) => {
 	return sendHttpRequest(url, "GET");
 };
 
+/** Keep adding gifs until the API stop to gives us gifs */
+const handleInfiniteScroll = (count, response, responseData) => {
+	for (let i = count; i < response; i++) {
+		const gifElClone = document.importNode(artistTemplate.content, true);
+		if (i < count + 3) {
+			gifElClone.querySelector("li").className = "an1";
+		} else if (i >= count + 3) {
+			gifElClone.querySelector("li").className = "an2";
+		}
+
+		gifElClone.querySelector("li").id = responseData[i].id;
+		gifElClone.querySelector("img").src =
+			responseData[i].images.original.url;
+
+		artists.appendChild(gifElClone);
+	}
+	fetchCount += 6;
+};
+
 // Execute the getTrend function when the page is loaded using jQuery
 $(window).on("load", () => {
 	getTrend();
 	getGifs("clips");
 	getGifs("stories");
 	getGifs("artists");
-	console.log(getTrend());
+});
+
+$(window).on("scroll", () => {
+	const endOfPage =
+		window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+
+	/** Fetching gifs using fetchCount and keyword */
+	const fetchGifs = async (count, keyword) => {
+		const limit = `&limit=${count + 6}`;
+		const url = `${searchUrl}${key}&q=${keyword}${limit}${offset}${rating}${language}`;
+		const response = await sendHttpRequest(url, "GET");
+		const responseData = response.data;
+		console.log(responseData);
+		handleInfiniteScroll(fetchCount, responseData.length, responseData);
+	};
+
+	if (endOfPage) {
+		fetchGifs(fetchCount, "artists");
+	}
 });

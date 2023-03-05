@@ -1,0 +1,9 @@
+@use "../abstracts//variables" as v;
+
+.search-title {
+	display: flex;
+
+	& h1 {
+		padding-right: 1rem;
+	}
+}
