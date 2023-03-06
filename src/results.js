@@ -21,6 +21,36 @@ $(document).ready(() => {
     const rating = "&rating=g";
     const language = "&lang=en";
 
+    /** Getting the Search box input field and Search Btn */
+    const searchBox = document.querySelector("#search");
+    const searchBtn = document.querySelector(".search-btn")
+
+    // listening for click search button
+    searchBtn.addEventListener("click", () => {
+        // Checking if search value is empty or not
+        if(searchBox.value.length == 0){
+            alert('Please provide a query!')
+        } else{
+            // Passing the query value with the link
+            const url = `/results.html?q=${searchBox.value}`
+            document.location.href = url;
+        }
+    })
+
+    // listening for enter press on search bar
+    searchBox.addEventListener('keyup',function(e){
+        if (e.keyCode === 13) {
+            // Checking if search value is empty or not
+            if(searchBox.value.length == 0){
+                alert('Please provide a query!')
+            } else{
+                // Passing the query value with the link
+                const url = `/results.html?q=${searchBox.value}`
+                document.location.href = url;
+            }
+        }
+    });
+
 
     // Use arrow function syntax for consistency and to simplify code
     const sendHttpRequest = async (url, method, data) => {
@@ -69,7 +99,11 @@ $(document).ready(() => {
                     responseData[i].images.original.url;
 
                 grid1.appendChild(gifElClone);
+                
             }
+
+            // Remove '%20' in query to display it as normal space inside of 'Results of: query' section
+            $('#querySpan').append(query.replaceAll('%20', ' '));
         }
     }
     getResultsFromUrlQuery(window.location.href)
