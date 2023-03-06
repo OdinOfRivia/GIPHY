@@ -2,11 +2,11 @@
 
 @use "../abstracts/mixin" as m;
 
-
 body {
 	margin: 0;
 	padding: 0;
-	background-color: v.$color-bg;
+	background-image: url(/src/img/gifs/back1.gif);
+	background-position: center center;
 	color: v.$color-main;
 
 	width: 95%;
@@ -16,7 +16,6 @@ body {
 		width: 90%;
 		max-width: 1200px;
 	}
-
 }
 
 li {

@@ -7,13 +7,13 @@ const nav = document.querySelector(".nav");
 let fetchCount = 6;
 
 /** select them to put gifs */
-const grid1 = document.querySelector("#trends");
+const grid1 = document.querySelector("#trends-container");
 const templateGrid1 = document.querySelector("#trend-template");
-const clips = document.querySelector("#clips");
+const clips = document.querySelector("#clips-container");
 const clipTemplate = document.querySelector("#clip-template");
-const stories = document.querySelector("#stories");
+const stories = document.querySelector("#stories-container");
 const storyTemplate = document.querySelector("#story-template");
-const artists = document.querySelector("#artists");
+const artists = document.querySelector("#artists-container");
 const artistTemplate = document.querySelector("#artist-template");
 
 /** Getting the Search box input field and Search Btn */
