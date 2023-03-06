@@ -147,6 +147,44 @@ header .menu h1 {
   transform: rotate(-45deg) translate(3px, -7px);
 }
 
+body {
+  background-image: url(/src/img/gifs/back1.gif);
+  background-position: center center;
+}
+
+.marg {
+  margin-bottom: 69px;
+}
+
+ul {
+  padding-left: 40px;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnWrapper li:hover {
+  transform: scale(105%);
+}
+.btnWrapper a:hover {
+  color: rgb(38, 198, 16);
+}
+.btnWrapper a {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.wrapper,
+.wrapper-2 {
+  margin-bottom: 40px;
+}
+
 .cards {
   width: 90%;
   margin: 0 auto;
@@ -166,67 +204,66 @@ header .menu h1 {
   font-size: medium;
   margin-left: 10px;
 }
-.cards .cart .content-title img {
-  width: 30%;
-}
-.cards .cart .btn1,
-.cards .cart .btn2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.cards .cart .btn1 a,
-.cards .cart .btn2 a {
-  font-size: small;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
-}
-.cards .cart .btn1 img,
-.cards .cart .btn2 img {
-  width: 30%;
-  height: auto;
-}
 .cards .grid-1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  padding: 0;
 }
 .cards .grid-1 li {
-  background-color: aquamarine;
   box-sizing: border-box;
+  background-image: url(/src/img/gifs/loading7.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
 }
 .cards .grid-1 img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 .cards .wrapper-2 {
   padding: 0;
   margin: 0;
 }
 .cards .wrapper-2 li {
-  background-color: aquamarine;
   box-sizing: border-box;
 }
 .cards .wrapper-2 img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  object-fit: fill;
+  object-fit: cover;
 }
 .cards .wrapper-2 .grid-2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  padding: 0;
+}
+.cards .wrapper-2 .grid-2 li {
+  background-image: url(/src/img//gifs/loading7.gif);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.cards .wrapper-2 .grid-2 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 .cards .wrapper-2 .grid-3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  padding: 0;
+  margin: 0;
+}
+.cards .wrapper-2 .grid-3 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 body {

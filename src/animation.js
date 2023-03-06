@@ -1,21 +1,45 @@
-// all the animation here...
+// gsap.from(".an1", { duration: 1,opacity:0 ,x: "-100%", ease: "steps (100)", stager: .5 });
+// gsap.from(".an2", { duration: 1,opacity:0 ,x: "100%", ease: "steps (100)", stager: .5 });
+// const timeline = gsap.timeline({defaults: {duration: 1}})
 
-const grid = document.querySelectorAll(".grid");
-console.log();
+// gsap.registerPlugin(scrollTrigger);
 
-// Define the scroll animation
 const tl = gsap.timeline({
+	defaults: {
+		duration: 1,
+		opacity: 0,
+		x: "-100%",
+		ease: "steps(100)",
+		stager: 0.5,
+	},
 	scrollTrigger: {
-		trigger: grid,
-		start: "top 80%",
-		end: "bottom 20%",
-		scrub: true,
+		trigger: ".an1",
+		start: "top 20%",
+		end: "bottom 80%",
+		// scrub: true,
+		markers: false,
 	},
 });
 
-// Add animation steps
-tl.fromTo(grid, { y: "-100%" }, { y: "0%", duration: 1 }).fromTo(
-	grid.children,
-	{ opacity: 0, y: 50 },
-	{ opacity: 1, y: 0, stagger: 0.1, duration: 0.5 }
-);
+// execute in main.js file
+// tl.from('.an1', { stagger: 0.2 });
+
+const tl2 = gsap.timeline({
+	defaults: {
+		duration: 1,
+		opacity: 0,
+		x: "100%",
+		ease: "steps(100)",
+		stager: 0.5,
+	},
+	scrollTrigger: {
+		trigger: ".an2",
+		start: "top 10%",
+		end: "bottom 70%",
+		// scrub: true,
+		markers: false,
+	},
+});
+
+// execute in main.js file
+// tl2.from('.an2', { stagger: 0.2 });

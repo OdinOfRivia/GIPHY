@@ -18,36 +18,35 @@ const artistTemplate = document.querySelector("#artist-template");
 
 /** Getting the Search box input field and Search Btn */
 const searchBox = document.querySelector("#search");
-const searchBtn = document.querySelector(".search-btn")
+const searchBtn = document.querySelector(".search-btn");
 
 // listening for click search button
 searchBtn.addEventListener("click", () => {
 	// Checking if search value is empty or not
-	if(searchBox.value.length == 0){
-		alert('Please provide a query!')
-	} else{
+	if (searchBox.value.length == 0) {
+		alert("Please provide a query!");
+	} else {
 		// Passing the query value with the link
-		const url = `/results.html?q=${searchBox.value}`
+		const url = `/results.html?q=${searchBox.value}`;
 		document.location.href = url;
 	}
-})
-
-// listening for enter press on search bar
-searchBox.addEventListener('keyup',function(e){
-    if (e.keyCode === 13) {
-    	// Checking if search value is empty or not
-		if(searchBox.value.length == 0){
-			alert('Please provide a query!')
-		} else{
-			// Passing the query value with the link
-			const url = `/results.html?q=${searchBox.value}`
-			document.location.href = url;
-		}
-  	}
 });
 
+// listening for enter press on search bar
+searchBox.addEventListener("keyup", function (e) {
+	if (e.keyCode === 13) {
+		// Checking if search value is empty or not
+		if (searchBox.value.length == 0) {
+			alert("Please provide a query!");
+		} else {
+			// Passing the query value with the link
+			const url = `/results.html?q=${searchBox.value}`;
+			document.location.href = url;
+		}
+	}
+});
 
-// Hamburguer Toggle Menu && Listener
+// Hamburger Toggle Menu && Listener
 const toggleMenu = () => {
 	burgerLine.classList.toggle("open");
 	nav.classList.toggle("open");
@@ -88,24 +87,46 @@ const getTrend = async (count = 6) => {
 	const limit = `&limit=${count}`;
 	const trendApi = trendUrl + key + limit + offset + rating + language;
 	// send an HTTP GET request to the trending API using the sendHttpRequest function
-	const response = await sendHttpRequest(trendApi, "GET");
-	const responseData = response.data;
-	/** Put the gifs in the list "grid-1" */
-	if (responseData.length > 0) {
-		for (let i = 0; i < responseData.length; i++) {
-			const gifElClone = document.importNode(templateGrid1.content, true);
-			if (i < 3) {
-				gifElClone.querySelector("li").className = "an1";
-			} else if (i >= 3) {
-				gifElClone.querySelector("li").className = "an2";
-			}
-			gifElClone.querySelector("li").id = responseData[i].id;
-			gifElClone.querySelector("img").src =
-				responseData[i].images.original.url;
+	await sendHttpRequest(trendApi, "GET").then((res) => {
+		const responseData = res.data;
+		if (responseData.length > 0) {
+			for (let i = 0; i < responseData.length; i++) {
+				const gifElClone = document.importNode(
+					templateGrid1.content,
+					true
+				);
+				if (i < 3) {
+					gifElClone.querySelector("li").className = "an1";
+				} else if (i >= 3) {
+					gifElClone.querySelector("li").className = "an2";
+				}
+				gifElClone.querySelector("li").id = responseData[i].id;
+				gifElClone.querySelector("img").src =
+					responseData[i].images.original.url;
 
-			grid1.appendChild(gifElClone);
+				grid1.appendChild(gifElClone);
+			}
 		}
-	}
+		tl.from(".an1", { stagger: 0.2 });
+		tl2.from(".an2", { stagger: 0.2 });
+	});
+
+	/** Put the gifs in the list "grid-1" */
+	// if (responseData.length > 0) {
+	// 	for (let i = 0; i < responseData.length; i++) {
+	// 		const gifElClone = document.importNode(templateGrid1.content, true);
+	// 		if (i < 3) {
+	// 			gifElClone.querySelector("li").className = "an1";
+	// 		} else if (i >= 3) {
+	// 			gifElClone.querySelector("li").className = "an2";
+	// 		}
+	// 		gifElClone.querySelector("li").id = responseData[i].id;
+	// 		gifElClone.querySelector("img").src =
+	// 			responseData[i].images.original.url;
+
+	// 		grid1.appendChild(gifElClone);
+	// 	}
+	// }
 };
 
 /** Get clips, stories, artists gifs  */
@@ -123,7 +144,6 @@ const getGifs = async (keyword, count = 6) => {
 	} else if (keyword === "artists") {
 		parent = artists;
 	}
-
 
 	// Displaying the results from query inside of results page
 	if (responseData.length > 0) {
@@ -145,7 +165,6 @@ const getGifs = async (keyword, count = 6) => {
 			gifElClone.querySelector("li").id = responseData[i].id;
 			gifElClone.querySelector("img").src =
 				responseData[i].images.original.url;
-
 			parent.appendChild(gifElClone);
 		}
 	}
@@ -162,31 +181,29 @@ const searchGif = async (keyword) => {
 };
 
 // Search arrow function with using the parameters from url query parameters passed from search bar
-const getResultsFromUrlQuery = async (url) => {
-	// getting the query
-	let query = url.split("?q=")[1]
-	const response = await searchGif(query)
-	const responseData = response.data
-	console.log(responseData);
+// const getResultsFromUrlQuery = async (url) => {
+// 	// getting the query
+// 	let query = url.split("?q=")[1];
+// 	const response = await searchGif(query);
+// 	const responseData = response.data;
+// 	console.log(responseData);
 
+// 	if (responseData.length > 0) {
+// 		for (let i = 0; i < responseData.length; i++) {
+// 			const gifElClone = document.importNode(templateGrid1.content, true);
+// 			if (i < 3) {
+// 				gifElClone.querySelector("li").className = "an1";
+// 			} else if (i >= 3) {
+// 				gifElClone.querySelector("li").className = "an2";
+// 			}
+// 			gifElClone.querySelector("li").id = responseData[i].id;
+// 			gifElClone.querySelector("img").src =
+// 				responseData[i].images.original.url;
 
-	if (responseData.length > 0) {
-		for (let i = 0; i < responseData.length; i++) {
-			const gifElClone = document.importNode(templateGrid1.content, true);
-			if (i < 3) {
-				gifElClone.querySelector("li").className = "an1";
-			} else if (i >= 3) {
-				gifElClone.querySelector("li").className = "an2";
-			}
-			gifElClone.querySelector("li").id = responseData[i].id;
-			gifElClone.querySelector("img").src =
-				responseData[i].images.original.url;
-
-			grid1.appendChild(gifElClone);
-		}
-	}
-
-}
+// 			grid1.appendChild(gifElClone);
+// 		}
+// 	}
+// };
 
 /** Keep adding gifs until the API stop to gives us gifs */
 const handleInfiniteScroll = (count, response, responseData) => {
@@ -213,7 +230,9 @@ $(window).on("load", () => {
 	getGifs("clips");
 	getGifs("stories");
 	getGifs("artists");
-	getResultsFromUrlQuery('https://www.encodedna.com/javascript/demo/check-if-url-contains-a-given-string-using-javascript.htm?q=dogs')
+	// getResultsFromUrlQuery(
+	// 	"https://www.encodedna.com/javascript/demo/check-if-url-contains-a-given-string-using-javascript.htm?q=dogs"
+	// );
 });
 
 $(window).on("scroll", () => {
